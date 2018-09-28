@@ -13,40 +13,40 @@ IMAGE_URL = "https://static.f-list.net/images/charimage/{}.{}"
 DATABASE_URL = "https://nyc3.digitaloceanspaces.com/fari/hashes.db"
 
 def get_image(url, forms = {}):
-		succeeded = False
-		while not succeeded:
-			try:
-				headers = {'user-agent' : 'Python/3.7.0 (Lookout) I\m generating checksums of these images!'}
-				resp = requests.get(url)
-				succeeded = True
-			except Exception as e:
-				print(e)
-				time.sleep(1+random.random())
-		if resp != None and resp.status_code == 200:
-			return resp
-		
-		return None
+	succeeded = False
+	while not succeeded:
+		try:
+			headers = {'user-agent' : 'Python/3.7.0 (Lookout) I\m generating checksums of these images!'}
+			resp = requests.get(url)
+			succeeded = True
+		except Exception as e:
+			print(e)
+			time.sleep(1+random.random())
+	if resp != None and resp.status_code == 200:
+		return resp
+	
+	return None
 		
 def get_db(url, forms = {}):
-		succeeded = False
-		while not succeeded:
-			try:
-				headers = {'user-agent' : 'Python/3.7.0 (Lookout) DB download'}
-				resp = requests.get(url)
-				succeeded = True
-			except Exception as e:
-				print(e)
-				time.sleep(10)
-		if resp != None and resp.status_code == 200:
-			return resp
-		
-		return None
+	succeeded = False
+	while not succeeded:
+		try:
+			headers = {'user-agent' : 'Python/3.7.0 (Lookout) DB download'}
+			resp = requests.get(url)
+			succeeded = True
+		except Exception as e:
+			print(e)
+			time.sleep(10)
+	if resp != None and resp.status_code == 200:
+		return resp
+	
+	return None
 	
 def post_json(url, forms = {}):
 	succeeded = False
 	while not succeeded:
 		try:
-			headers = {'user-agent' : 'Python/3.7.0 (Windows 10 NT) Lookout'}
+			headers = {'user-agent' : 'Python/3.7.0 (Lookout)'}
 			resp = requests.post(url, data=forms, timeout=10)
 			succeeded = True
 		except Exception as e:
