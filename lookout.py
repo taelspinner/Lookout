@@ -90,10 +90,14 @@ def connect_and_setup_db():
 def print_all_matches(img_nums, matches):
 	if len(matches) <= 0:
 		print("No profiles using the same images as the one provided were found.")
+		print("Press ENTER to dismiss this window.")
+		input()
 		return
 	print("Found the following images that match images on the provided profile:")
 	for match in matches:
 		print(IMAGE_URL.format(match[0],match[1]))
+	print("Press ENTER to dismiss this window.")
+	input()
 	
 def find_hash_matches(img_list, db):
 	img_nums = [int(i["image_id"]) for i in img_list]
@@ -110,7 +114,7 @@ def find_hash_matches(img_list, db):
 	print()
 	print_all_matches(img_nums, filtered_matches)
 	
-def update_db():
+def lookout():
 	db = connect_and_setup_db()
 	if db != None:
 		username = input("Enter your account username: ")
@@ -125,4 +129,4 @@ def update_db():
 			print("Could not get a ticket with the login you provided. Try again.")
 
 if __name__ == "__main__":
-	update_db()
+	lookout()
