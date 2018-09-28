@@ -1,7 +1,9 @@
 # Lookout
 A Python script that tells you which of your images are being used in other profiles on F-List.
 
-Just download and run lookout.py from the Command Prompt. You need Python 3.X and the requests library. You'll be asked to provide your login credentials, which are required to generate a ticket so that the script can get the list of images from your character.
+Just download and run lookout.py from the Command Prompt. You need Python 3.X and the requests library. Alternatively, you can download the executable and it will install what's necessary to run the script. NOTE: You should never run executables from strangers, you don't know what's in them. The Python script is inherently safer because you can look at what it does yourself.
+
+You'll be asked to provide your login credentials, which are required to generate a ticket so that the script can get the list of images from your character.
 
 The first time you run it, you'll need to download the hash DB from the server. This may take a while.
 
