@@ -10,7 +10,7 @@ import sys
 DB_TABLE = "imageHashes"
 TABLE_LAYOUT = "(num INTEGER PRIMARY KEY, ext TEXT, checksum TEXT)"
 IMAGE_URL = "https://static.f-list.net/images/charimage/{}.{}"
-DATABASE_URL = "https://nyc3.digitaloceanspaces.com/fari/hashes.db"
+DATABASE_URL = "http://104.131.132.207/hashes.db"
 
 def get_image(url, forms = {}):
 	succeeded = False
@@ -67,6 +67,7 @@ def request_character(account, name, ticket):
 	return character_json
 	
 def connect_and_setup_db():
+	#requests.get(DATABASE_URL, stream=True).headers['Content-length']
 	try:
 		db = sqlite3.connect('hashes.db')
 		result = db.execute("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='{}'".format(DB_TABLE))
